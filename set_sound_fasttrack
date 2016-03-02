@@ -1,0 +1,1 @@
+pactl set-default-sink alsa_output.usb-M-Audio_FastTrack_Pro-00-Pro.analog-stereo-a-output

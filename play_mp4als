@@ -1,0 +1,9 @@
+#!/bin/bash
+if [[ -z "$1" ]]
+then
+    echo "Specify soundfile."
+else
+    SOUNDFILE=$1
+fi
+
+ffmpeg -i $SOUNDFILE -f wav pipe: | sox -t wav - -d speed 1
