@@ -1,0 +1,24 @@
+#!/bin/bash
+
+if [ -z "$1" ]
+then
+    pth="."
+else
+    pth="$1"
+fi
+
+# Plays files of following types
+#ftypes=$(echo 'flac
+#mp3
+#wav 
+#aif
+#aiff' | awk 'BEGIN \
+#    {s="("} \
+#    {s=s" -name \"*."$1"\" -o "} \
+#    END {printf("%s -false ) ",s)}')
+#
+#find . ${ftypes} -print0 | xargs -0 -I^ sh -c 'sox "^" -d;'
+
+find . \( -name "*.flac" -o -name "*.mp3" -o -name "*.wav" -o \
+    -name "*.aif" -o -name "*.aiff" -o -false \) -print0 | \
+    xargs -0 -I^ sh -c 'sox "^" -d;'
