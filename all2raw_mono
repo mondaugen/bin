@@ -1,0 +1,11 @@
+#!/bin/bash
+# Mixes any sound file down to mono and outputs as float64 samples
+if [[ -z "$1" ]]
+then
+    echo "Specify soundfile."
+    exit -1
+else
+    SOUNDFILE=$1
+fi
+
+ffmpeg -i $SOUNDFILE -ac 1 -f f64le pipe:1 

@@ -2,6 +2,7 @@
 if [[ -z "$1" ]]
 then
     echo "Specify soundfile."
+    exit -1
 else
     SOUNDFILE=$1
 fi
